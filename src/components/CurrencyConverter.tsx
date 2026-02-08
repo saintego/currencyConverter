@@ -59,56 +59,56 @@ const Result = styled.div`
 `;
 
 interface CurrencyConverterProps {
-  rates: ExchangeRate[];
+    rates: ExchangeRate[];
 }
 
 export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
-  const [amountCZK, setAmountCZK] = useState<string>('1000');
-  const [selectedCurrency, setSelectedCurrency] = useState<string>(rates[0]?.code || '');
+    const [amountCZK, setAmountCZK] = useState<string>('1000');
+    const [selectedCurrency, setSelectedCurrency] = useState<string>(rates[0]?.code || '');
 
-  const selectedRate = rates.find((r) => r.code === selectedCurrency);
-  const converted = selectedRate && amountCZK
-    ? convertCurrency(parseFloat(amountCZK) || 0, selectedRate)
-    : 0;
+    const selectedRate = rates.find((r) => r.code === selectedCurrency);
+    const converted = selectedRate && amountCZK
+        ? convertCurrency(parseFloat(amountCZK) || 0, selectedRate)
+        : 0;
 
-  return (
-    <Card>
-      <h2>Currency Converter</h2>
+    return (
+        <Card>
+            <h2>Currency Converter</h2>
 
-      <label htmlFor="amount">Amount in CZK</label>
-      <input
-        id="amount"
-        type="number"
-        value={amountCZK}
-        onChange={(e) => setAmountCZK(e.target.value)}
-        placeholder="Enter amount in CZK"
-        min="0"
-        step="0.01"
-      />
+            <label htmlFor="amount">Amount in CZK</label>
+            <input
+                id="amount"
+                type="number"
+                value={amountCZK}
+                onChange={(e) => setAmountCZK(e.target.value)}
+                placeholder="Enter amount in CZK"
+                min="0"
+                step="0.01"
+            />
 
-      <label htmlFor="currency">Target Currency</label>
-      <select
-        id="currency"
-        value={selectedCurrency}
-        onChange={(e) => setSelectedCurrency(e.target.value)}
-      >
-        {rates.map((rate) => (
-          <option key={rate.code} value={rate.code}>
-            {rate.code} - {rate.currency}
-          </option>
-        ))}
-      </select>
+            <label htmlFor="currency">Target Currency</label>
+            <select
+                id="currency"
+                value={selectedCurrency}
+                onChange={(e) => setSelectedCurrency(e.target.value)}
+            >
+                {rates.map((rate) => (
+                    <option key={rate.code} value={rate.code}>
+                        {rate.code} - {rate.currency}
+                    </option>
+                ))}
+            </select>
 
-      {selectedRate && amountCZK && (
-        <Result>
-          <p>
-            {parseFloat(amountCZK).toLocaleString('cs-CZ')} CZK = {converted.toFixed(2)} {selectedRate.code}
-          </p>
-          <p>
-            Rate: {selectedRate.amount} {selectedRate.code} = {selectedRate.rate.toFixed(3)} CZK
-          </p>
-        </Result>
-      )}
-    </Card>
-  );
+            {selectedRate && amountCZK && (
+                <Result>
+                    <p>
+                        {parseFloat(amountCZK).toLocaleString('cs-CZ')} CZK = {converted.toFixed(2)} {selectedRate.code}
+                    </p>
+                    <p>
+                        Rate: {selectedRate.amount} {selectedRate.code} = {selectedRate.rate.toFixed(3)} CZK
+                    </p>
+                </Result>
+            )}
+        </Card>
+    );
 };

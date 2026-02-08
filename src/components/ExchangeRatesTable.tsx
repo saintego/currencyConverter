@@ -34,33 +34,33 @@ const Table = styled.table`
 `;
 
 interface ExchangeRatesTableProps {
-  rates: ExchangeRate[];
+    rates: ExchangeRate[];
 }
 
 export const ExchangeRatesTable: React.FC<ExchangeRatesTableProps> = ({ rates }) => (
-  <div>
-    <h2>Current Exchange Rates</h2>
-    <Table>
-      <thead>
-        <tr>
-          <th>Country</th>
-          <th>Currency</th>
-          <th>Amount</th>
-          <th>Code</th>
-          <th>Rate (CZK)</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rates.map((rate) => (
-          <tr key={rate.code}>
-            <td>{rate.country}</td>
-            <td>{rate.currency}</td>
-            <td>{rate.amount}</td>
-            <td><strong>{rate.code}</strong></td>
-            <td>{rate.rate.toFixed(3)}</td>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
-  </div>
+    <div>
+        <h2>Current Exchange Rates</h2>
+        <Table>
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Currency</th>
+                    <th>Amount</th>
+                    <th>Code</th>
+                    <th>Rate (CZK)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {rates.map((rate) => (
+                    <tr key={rate.code}>
+                        <td>{rate.country}</td>
+                        <td>{rate.currency}</td>
+                        <td>{rate.amount}</td>
+                        <td><strong>{rate.code}</strong></td>
+                        <td>{rate.rate.toFixed(3)}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </Table>
+    </div>
 );
