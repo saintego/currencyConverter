@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { fetchExchangeRates } from './services/cnbService';
 import { ExchangeRatesTable } from './components/ExchangeRatesTable';
 import { CurrencyConverter } from './components/CurrencyConverter';
+import { theme } from './theme';
 
 const Page = styled.div`
   min-height: 100vh;
@@ -55,7 +56,7 @@ function App() {
       <div>
         <header style={{ textAlign: 'center' }}>
           <h1>CZK Currency Converter</h1>
-          <p style={{ color: '#cbd5e1', margin: 0, fontSize: 18 }}>
+          <p style={{ color: theme.text.tertiary, margin: 0, fontSize: 18 }}>
             Live exchange rates from Czech National Bank
           </p>
         </header>
@@ -70,7 +71,7 @@ function App() {
 
         {data && (
           <>
-            <p style={{ textAlign: 'center', color: '#cbd5e1', margin: 0, opacity: 0.85, fontSize: 14 }}>
+            <p style={{ textAlign: 'center', color: theme.text.tertiary, margin: 0, opacity: 0.85, fontSize: 14 }}>
               Rates as of {data.date}
             </p>
             <CurrencyConverter rates={data.rates} />

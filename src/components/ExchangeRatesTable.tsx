@@ -1,33 +1,34 @@
 import styled from 'styled-components';
 import type { ExchangeRate } from '../types/currency';
+import { theme } from '../theme';
 
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  background: #1e293b;
+  background: ${theme.bg.secondary};
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
   th {
-    background: #0f172a;
-    color: #cbd5e1;
+    background: ${theme.bg.primary};
+    color: ${theme.text.tertiary};
     padding: 12px;
     text-align: left;
     font-weight: 600;
     font-size: 14px;
-    border-bottom: 2px solid #334155;
+    border-bottom: 2px solid ${theme.border.primary};
   }
 
   td {
     padding: 12px;
-    border-bottom: 1px solid #334155;
+    border-bottom: 1px solid ${theme.border.primary};
     font-size: 14px;
-    color: #cbd5e1;
+    color: ${theme.text.tertiary};
   }
 
   tbody tr:hover {
-    background: #334155;
+    background: ${theme.bg.tertiary};
   }
 
   tbody tr:last-child td {

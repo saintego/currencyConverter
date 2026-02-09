@@ -2,9 +2,10 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import type { ExchangeRate } from '../types/currency';
 import { convertCurrency } from '../services/cnbService';
+import { theme } from '../theme';
 
 const Card = styled.div`
-  background: #1e293b;
+  background: ${theme.bg.secondary};
   padding: 24px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -12,7 +13,7 @@ const Card = styled.div`
   label {
     display: block;
     font-weight: 600;
-    color: #cbd5e1;
+    color: ${theme.text.tertiary};
     margin-bottom: 6px;
     font-size: 14px;
   }
@@ -20,45 +21,51 @@ const Card = styled.div`
   input, select {
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid #334155;
+    border: 1px solid ${theme.border.primary};
     border-radius: 6px;
     font-size: 16px;
     margin-bottom: 16px;
-    background: #0f172a;
-    color: #e2e8f0;
+    background: ${theme.bg.primary};
+    color: ${theme.text.secondary};
 
     &:focus {
       outline: none;
-      border-color: #60a5fa;
+      border-color: ${theme.accent};
       box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
     }
 
     &::placeholder {
-      color: #64748b;
+      color: ${theme.text.muted};
     }
   }
 
   select {
     cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2360a5fa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 20px;
+    padding-right: 32px;
   }
 `;
 
 const Result = styled.div`
   padding: 16px;
-  background: #1e3a8a;
-  border-left: 4px solid #60a5fa;
+  background: ${theme.bg.info};
+  border-left: 4px solid ${theme.accent};
   border-radius: 6px;
 
   p:first-child {
     font-size: 18px;
     font-weight: 600;
-    color: #93c5fd;
+    color: ${theme.accentLight};
     margin: 0;
   }
 
   p:last-child {
     font-size: 14px;
-    color: #cbd5e1;
+    color: ${theme.text.tertiary};
     margin: 8px 0 0 0;
   }
 `;
