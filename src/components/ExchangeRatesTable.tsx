@@ -4,28 +4,30 @@ import type { ExchangeRate } from '../types/currency';
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  background: white;
+  background: #1e293b;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
   th {
-    background: #2563eb;
-    color: white;
+    background: #0f172a;
+    color: #cbd5e1;
     padding: 12px;
     text-align: left;
     font-weight: 600;
     font-size: 14px;
+    border-bottom: 2px solid #334155;
   }
 
   td {
     padding: 12px;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #334155;
     font-size: 14px;
+    color: #cbd5e1;
   }
 
   tbody tr:hover {
-    background: #f9fafb;
+    background: #334155;
   }
 
   tbody tr:last-child td {

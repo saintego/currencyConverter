@@ -6,21 +6,21 @@ import { CurrencyConverter } from './components/CurrencyConverter';
 
 const Page = styled.div`
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1a1f3a 100%);
   padding: 40px 20px;
 
   h1 {
     font-size: 48px;
     font-weight: 800;
-    color: white;
+    color: #f1f5f9;
     margin: 0 0 8px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   h2 {
     font-size: 22px;
     font-weight: 700;
-    color: #1f2937;
+    color: #e2e8f0;
     margin: 0 0 16px;
   }
 
@@ -36,11 +36,11 @@ const Page = styled.div`
 const StatusBox = styled.div<{ $error?: boolean }>`
   text-align: center;
   padding: 40px 20px;
-  background: ${({ $error }) => ($error ? '#fef2f2' : 'white')};
+  background: ${({ $error }) => ($error ? '#7f1d1d' : '#1e293b')};
   border-radius: 8px;
-  border: ${({ $error }) => ($error ? '2px solid #ef4444' : 'none')};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  color: ${({ $error }) => ($error ? '#dc2626' : '#6b7280')};
+  border: ${({ $error }) => ($error ? '2px solid #dc2626' : 'none')};
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: ${({ $error }) => ($error ? '#fca5a5' : '#94a3b8')};
   font-size: 18px;
 `;
 
@@ -54,8 +54,8 @@ function App() {
     <Page>
       <div>
         <header style={{ textAlign: 'center' }}>
-          <h1>💱 CZK Currency Converter</h1>
-          <p style={{ color: 'rgba(255,255,255,0.9)', margin: 0, fontSize: 18 }}>
+          <h1>CZK Currency Converter</h1>
+          <p style={{ color: '#cbd5e1', margin: 0, fontSize: 18 }}>
             Live exchange rates from Czech National Bank
           </p>
         </header>
@@ -70,7 +70,7 @@ function App() {
 
         {data && (
           <>
-            <p style={{ textAlign: 'center', color: 'white', margin: 0, opacity: 0.85, fontSize: 14 }}>
+            <p style={{ textAlign: 'center', color: '#cbd5e1', margin: 0, opacity: 0.85, fontSize: 14 }}>
               Rates as of {data.date}
             </p>
             <CurrencyConverter rates={data.rates} />
